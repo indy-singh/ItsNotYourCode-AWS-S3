@@ -7,6 +7,13 @@ using Amazon.S3.Model;
 
 namespace SometimesItsNotYourCode_AWS_S3
 {
+    /// <summary>
+    /// When using AWSSDK.Core version 3.3.21.18 or below and uploading the same image one hundred times:
+    ///     Total Memory Allocaitons: 59 MB     SOH: 33 MB      LOH: 25 MB
+    ///
+    /// When using AWSSDK.Core version 3.3.21.19 or above and uploading the same image one hundred times:
+    ///     Total Memory Allocaitons: 51 MB     SOH: 51 MB      LOH: 0.4 MB
+    /// </summary>
     public class UploaderV1 : IUploader
     {
         private readonly AWSCredentials _credentials;
@@ -34,8 +41,7 @@ namespace SometimesItsNotYourCode_AWS_S3
                         Key = "v1/" + iteration + ".png",
                         CannedACL = S3CannedACL.PublicRead,
                         StorageClass = S3StorageClass.Standard,
-                        ServerSideEncryptionMethod = ServerSideEncryptionMethod.None,
-                        UseChunkEncoding = false
+                        ServerSideEncryptionMethod = ServerSideEncryptionMethod.None
                     };
 
                     client.PutObject(putObjectRequest);

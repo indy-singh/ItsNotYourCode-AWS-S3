@@ -6,6 +6,9 @@ using SometimesItsNotYourCode_AWS_S3.Helpers;
 
 namespace SometimesItsNotYourCode_AWS_S3
 {
+    /// <summary>
+    /// Total Memory Allocaitons: 13 MB     SOH: 13 MB      LOH: 0 MB
+    /// </summary>
     public class UploaderV3 : IUploader
     {
         private readonly AWSCredentials _credentials;
