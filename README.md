@@ -1,1 +1,1 @@
-# SometimesItsNotYourCode-AWS-S3
+# ItsNotYourCode-AWS-S3
